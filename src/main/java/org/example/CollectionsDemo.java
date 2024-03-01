@@ -43,8 +43,7 @@ public class CollectionsDemo {
         Map<Integer, List<Human>> result = new HashMap<>();
         List<Human> list = new ArrayList<>();
         for(Human human : humans){
-            int buff = human.getAge();
-            if(buff == age){
+            if(human.getAge() == age){
                 list.add(human);
                 result.put(age, list);
             }
