@@ -98,8 +98,6 @@ class CollectionsDemoTest {
         humans.add(human2);
         humans.add(human3);
         humans.add(human4);
-        System.out.println(humans);
-        System.out.println(humans.size());
 
         assertEquals(0, CollectionsDemo.getHumanByAge(11, humans).size());
         assertEquals(1, CollectionsDemo.getHumanByAge(19, humans).size());
