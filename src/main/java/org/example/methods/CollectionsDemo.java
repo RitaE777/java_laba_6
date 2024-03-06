@@ -1,7 +1,10 @@
-package org.example;
+package org.example.methods;
+import org.example.objects.Human;
+
 import java.util.*;
 
 public class CollectionsDemo {
+
     public static int countStrings(List<String> strings, char symbol){
         int count = 0;
         for(String s : strings){

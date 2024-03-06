@@ -1,6 +1,6 @@
-package org.example;
+package org.example.objects;
 
-public class Student extends Human{
+public class Student extends Human {
     private String faculty;
     public Student(String lastname, String name, String otchestvo, int age) {
         super(lastname, name, otchestvo, age);

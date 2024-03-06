@@ -1,4 +1,6 @@
-package org.example;
+package org.example.methods;
+import org.example.objects.Human;
+
 import java.util.*;
 
 public class ListDemo {

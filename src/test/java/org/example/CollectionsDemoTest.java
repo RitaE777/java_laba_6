@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.methods.CollectionsDemo;
+import org.example.objects.Human;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -100,6 +102,7 @@ class CollectionsDemoTest {
         humans.add(human4);
 
         assertEquals(0, CollectionsDemo.getHumanByAge(11, humans).size());
+
         assertEquals(1, CollectionsDemo.getHumanByAge(19, humans).size());
     }
 }
