@@ -17,11 +17,12 @@ class CollectionsDemoTest {
         String string2 = "Ritka";
         String string3 = "Oleg";
         String string4 = "Markovka";
-        String string5 = "Dimic2";
+        String string5 = "Dmitriy";
         strings.add(string1);
         strings.add(string2);
         strings.add(string3);
         strings.add(string4);
+        strings.add(string5);
         assertEquals(2, CollectionsDemo.countStrings(strings, 'D'));
         assertEquals(0, CollectionsDemo.countStrings(strings, 'P'));
         assertEquals(1, CollectionsDemo.countStrings(strings, 'M'));
@@ -48,8 +49,13 @@ class CollectionsDemoTest {
         ids.add(10);
         ids.add(5);
 
-        assertEquals(2, CollectionsDemo.getHumanByID(map, ids).size());
-        assertEquals(0, CollectionsDemo.getHumanByID(map, IDS).size());
+        Set<Human> outPut1 = new HashSet<>();
+        outPut1.add(human1);
+        outPut1.add(human3);
+        Set<Human> outPut2 = new HashSet<>();
+
+        assertEquals(outPut1, CollectionsDemo.getHumanByID(map, ids));
+        assertEquals(outPut2, CollectionsDemo.getHumanByID(map, IDS));
     }
 
     @Test
@@ -70,7 +76,12 @@ class CollectionsDemoTest {
         set.add(3);
         set.add(4);
 
-        assertEquals(3, CollectionsDemo.ageFilter(map, set).size());
+        Set<Human> outPut = new HashSet<>();
+        outPut.add(human1);
+        outPut.add(human2);
+        outPut.add(human4);
+
+        assertEquals(outPut, CollectionsDemo.ageFilter(map, set));
     }
     @Test
     void comparePersonsAge(){
@@ -101,8 +112,11 @@ class CollectionsDemoTest {
         humans.add(human3);
         humans.add(human4);
 
-        assertEquals(0, CollectionsDemo.getHumanByAge(11, humans).size());
+        Map<Integer, Human> map1 = new HashMap<>();
+        Map<Integer, Human> map2 = new HashMap<>();
+        map2.put(19, human1);
 
-        assertEquals(1, CollectionsDemo.getHumanByAge(19, humans).size());
+        assertEquals(map1, CollectionsDemo.getHumanByAge(11, humans));
+        assertEquals(map2, CollectionsDemo.getHumanByAge(19, humans));
     }
 }

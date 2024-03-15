@@ -4,10 +4,7 @@ import org.example.methods.ListDemo;
 import org.example.objects.Human;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,8 +26,13 @@ class ListDemoTest {
 
         List<Human> result = ListDemo.sameLastname(people, human5);
         assertEquals(0, result.size());
-        result = ListDemo.sameLastname(people, human6);
-        assertEquals(2, result.size());
+        assertEquals(new ArrayList<Human>(), result);
+
+        List<Human> result2 = ListDemo.sameLastname(people, human6);
+        List<Human> people2 = new ArrayList<>();
+        people2.add(human1);
+        people2.add(human3);
+        assertEquals(people2, result2);
     }
 
     @Test
@@ -45,51 +47,71 @@ class ListDemoTest {
         people.add(human2);
         people.add(human3);
         people.add(human4);
+        List<Human> people2 = new ArrayList<>();
+        people2.add(human2);
+        people2.add(human3);
+        people2.add(human4);
 
         List<Human> result = ListDemo.deleteHuman(people, human1);
-        assertEquals(3, result.size());
+        assertEquals(people2, result);
     }
 
     @Test
     void setOfIntegers() {
-        Set<Integer> set1 = new HashSet<>();
+        /*Set<Integer> set1 = new HashSet<>();
         set1.add(1);
         set1.add(2);
         set1.add(3);
-        set1.add(4);
-        set1.add(5);
         Set<Integer> set2 = new HashSet<>();
         set2.add(0);
         set2.add(-1);
         set2.add(-2);
-        set2.add(-3);
-        set2.add(-4);
-        Set<Integer> set3 = new HashSet<>();
-        set3.add(10);
-        set3.add(20);
-        set3.add(30);
-        set3.add(40);
-        set3.add(50);
-        List<Set<Integer>> list = new ArrayList<>();
-        list.add(set1);
-        list.add(set2);
-        list.add(set3);
+        List<Set<Integer>> inputList = new ArrayList<>();
+        inputList.add(set1);
+        inputList.add(set2);
 
         Set<Integer> mainSet1 = new HashSet<>();
-        mainSet1.add(0);
+        mainSet1.add(11);
         mainSet1.add(-1);
-        mainSet1.add(-2);
-        mainSet1.add(-3);
-        mainSet1.add(-4);
+        mainSet1.add(-22);
         Set<Integer> mainSet2 = new HashSet<>();
         mainSet2.add(111);
         mainSet2.add(-112);
         mainSet2.add(215);
-        mainSet2.add(319);
-        mainSet2.add(141);
 
-        assertEquals(2, ListDemo.setOfIntegers(list, mainSet1).size());
-        assertEquals(3, ListDemo.setOfIntegers(list, mainSet2).size());
+        List<Set<Integer>> outputList = new ArrayList<>();
+        outputList.add(set1);
+
+        assertEquals(outputList, ListDemo.deletingSetsIntegerNumbers(inputList, mainSet1));*/
+        Set<Integer> inputSet = new HashSet<>();
+        inputSet.add(101);
+        inputSet.add(5);
+        inputSet.add(301);
+
+        Set<Integer> set1 = new HashSet<>();
+        set1.add(5);
+        set1.add(10);
+        set1.add(15);
+
+        Set<Integer> set2 = new HashSet<>();
+        set2.add(3);
+        set2.add(6);
+        set2.add(9);
+
+        Set<Integer> set3 = new HashSet<>();
+        set3.add(10);
+        set3.add(20);
+        set3.add(30);
+
+        List<Set<Integer>> inputList = new ArrayList<>();
+        inputList.add(set1);
+        inputList.add(set2);
+        inputList.add(set3);
+
+        List<Set<Integer>> output = new ArrayList<>();
+        output.add(set2);
+        output.add(set3);
+        assertEquals(output, ListDemo.setOfIntegers(inputList, inputSet));
     }
 
     @Test
@@ -106,7 +128,18 @@ class ListDemoTest {
         people.add(human4);
 
         Set<Human> result = ListDemo.maxAge(people);
-        assertEquals(1, result.size());
+        Set<Human> outputSet = new HashSet<>();
+        outputSet.add(human2);
+        assertEquals(outputSet, result);
 
+    }
+    @Test
+    void idk(){
+        Map<Integer, String> mapa = new HashMap<>();
+        mapa.put(1, "String1");
+        mapa.put(2, "String1");
+        mapa.put(3, "String1");
+        mapa.put(1, "String12");
+        System.out.println(mapa.get(1));
     }
 }
